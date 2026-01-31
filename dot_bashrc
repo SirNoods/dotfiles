@@ -1,0 +1,26 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+#goshva's aliases
+
+alias ll='ls -alF --color=auto'
+alias la='ls -A'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias q='exit'
+
+alias showaliases='cat ~/.bashrc | grep alias'
+
+# Created by `pipx` on 2026-01-20 00:35:11
+export PATH="$PATH:/home/goshva/.local/bin"
