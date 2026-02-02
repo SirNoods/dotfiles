@@ -9,6 +9,7 @@
         "enableClipPreview": true,
         "enableClipboardHistory": false,
         "enableSettingsSearch": true,
+        "enableWindowsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
@@ -33,11 +34,13 @@
         "volumeStep": 5
     },
     "bar": {
+        "autoHideDelay": 500,
+        "autoShowDelay": 150,
         "backgroundOpacity": 1,
         "barType": "floating",
         "capsuleOpacity": 0.87,
         "density": "default",
-        "exclusive": true,
+        "displayMode": "always_visible",
         "floating": true,
         "frameRadius": 12,
         "frameThickness": 8,
@@ -94,8 +97,10 @@
                     "compactMode": true,
                     "diskPath": "/",
                     "id": "SystemMonitor",
+                    "showCpuFreq": false,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
+                    "showDiskAsFree": false,
                     "showDiskUsage": false,
                     "showGpuTemp": false,
                     "showLoadAverage": false,
@@ -153,6 +158,7 @@
                     "unreadBadgeColor": "primary"
                 },
                 {
+                    "deviceNativePath": "__default__",
                     "displayMode": "alwaysShow",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
@@ -178,6 +184,9 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "id": "plugin:privacy-indicator"
                 }
             ]
         }
@@ -209,7 +218,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Everforest",
+        "predefinedScheme": "Osaka jade",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -290,8 +299,8 @@
                         "showBackground": false,
                         "useCustomFont": true,
                         "usePrimaryColor": true,
-                        "x": 18,
-                        "y": 65
+                        "x": 1258,
+                        "y": 15
                     },
                     {
                         "hideMode": "visible",
@@ -308,22 +317,10 @@
                     },
                     {
                         "id": "Weather",
-                        "scale": 0.9368759883878259,
-                        "showBackground": true,
-                        "x": 52,
-                        "y": 181
-                    },
-                    {
-                        "hideMode": "visible",
-                        "id": "MediaPlayer",
-                        "roundedCorners": true,
-                        "showAlbumArt": true,
+                        "scale": 0.85841291561085,
                         "showBackground": false,
-                        "showButtons": true,
-                        "showVisualizer": false,
-                        "visualizerType": "linear",
-                        "x": 19,
-                        "y": 421
+                        "x": 1286,
+                        "y": 137
                     }
                 ]
             }
@@ -416,19 +413,19 @@
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "3446"
     },
     "notifications": {
-        "backgroundOpacity": 1,
-        "criticalUrgencyDuration": 15,
+        "backgroundOpacity": 0.5,
+        "criticalUrgencyDuration": 8,
         "enableKeyboardLayoutToast": true,
         "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
-        "lowUrgencyDuration": 3,
+        "lowUrgencyDuration": 2,
         "monitors": [
         ],
-        "normalUrgencyDuration": 8,
+        "normalUrgencyDuration": 4,
         "overlayLayer": true,
         "respectExpireTimeout": false,
         "saveToHistory": {
@@ -556,7 +553,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/goshva/Pictures/everforest_walls",
+        "directory": "/home/goshva/3_Resources/pictures/wallpapers/everforest_walls",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
@@ -570,6 +567,7 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "solidColor": "#1a1a2e",
+        "sortOrder": "name",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random",
