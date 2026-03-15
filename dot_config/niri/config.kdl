@@ -6,6 +6,7 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
+
 input {
     keyboard {
         xkb {
@@ -45,8 +46,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed 0.6
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -104,6 +105,33 @@ input {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=1280 y=0
+}
+
+output "DP-2" {
+    position x=0 y=0
+    scale 1
+    mode "2560x1440@75"
+}
+
+output "HDMI-A-1" {
+    position x=2560 y=0
+    scale 1
+    mode "2560x1440@75"
+}
+
+output "DP-3" {
+    position x=5120 y=-540
+    transform "270"
+    scale 1
+    mode "2560x1440@75"
+}
+
+// layer rule for niri/noctalia overview wallpaper thing
+
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
 }
 
 //this disables the focus ring and borders being drawn as solid rectangle
@@ -277,9 +305,11 @@ layout {
 
 spawn-sh-at-startup "vicinae server"
 
+spawn-at-startup "/usr/bin/swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call lockScreen lock" "timeout" "900" "niri msg power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "qs -c noctalia-shell ipc call lockScreen lock"
+
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -369,6 +399,9 @@ binds {
     // CUSTOM KEYBINDS
     //-------------------------------------------------------
     Mod+space { spawn "vicinae" "toggle"; }
+    Mod+Shift+S { spawn "bash" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Mod+KP_Enter { spawn "ydotool" "key" "56:1" "41:1" "41:0" "56:0"; }
+
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
     // like wev.
@@ -386,7 +419,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: tilix" { spawn "tilix"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "qs -c noctalia-shell ipc call lockScreen lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
